@@ -12,3 +12,9 @@ def home():
         "message": "Welcome to FileFlow",
         "status": "running"
     }
+
+@app.get("/health")
+def health_check():
+    return{
+        "status": "healthy"
+    }
