@@ -1,15 +1,17 @@
 from fastapi import FastAPI
 
+from app.core.config import settings
+
 app = FastAPI(
-    title = "FileFlow",
+    title = settings.APP_NAME,
     description = "Smart Large Folder Upload & Transfer System",
-    version = "1.0.0"
+    version = settings.APP_VERSION
 )
 
 @app.get("/")
 def home():
     return{
-        "message": "Welcome to FileFlow",
+        "message": f"Welcome to {settings.APP_NAME}",
         "status": "running"
     }
 
