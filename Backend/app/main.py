@@ -1,23 +1,13 @@
-from contextlib import asynccontextmanager
-
 from fastapi import FastAPI
 from sqlalchemy import text
 
 from app.core.config import settings
-from app.database.connection import Base, engine
-from app.models import(User, Folder, File, Upload, UploadChunk)
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    Base.metadata.create_all(bind=engine)
-
-    yield
+from app.database.connection import engine
 
 app = FastAPI(
     title = settings.APP_NAME,
     description = "Smart Large Folder Upload & Transfer System",
     version = settings.APP_VERSION,
-    lifespan = lifespan
 )
 
 @app.get("/")

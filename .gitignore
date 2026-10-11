@@ -4,6 +4,10 @@ venv/
 .venv/
 env
 
+venv312/
+.venv312/
+env
+
 # Python cache
 __pycache__/
 *.py[cd]
