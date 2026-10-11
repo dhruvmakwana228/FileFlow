@@ -3,12 +3,15 @@ from sqlalchemy import text
 
 from app.core.config import settings
 from app.database.connection import engine
+from app.api.routes.uploads import router as uploads_router
 
 app = FastAPI(
     title = settings.APP_NAME,
     description = "Smart Large Folder Upload & Transfer System",
     version = settings.APP_VERSION,
 )
+
+app.include_router(uploads_router)
 
 @app.get("/")
 def home():

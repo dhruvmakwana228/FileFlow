@@ -36,3 +36,6 @@ temp/
 
 # Database
 *.sqlite3
+
+# FileFlow uploaded data
+Backend/storage/
